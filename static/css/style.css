@@ -1,0 +1,132 @@
+.index-home {
+    height: 500px;
+    align-content: center;
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+}
+
+.banner {
+    background-image: url('/static/img/banners.png');
+    background-size: cover;
+}
+
+
+.content-home {
+    width: 90%;
+    justify-content: center;
+    height: 70%;
+    align-content: center;
+    margin: 0 auto;
+}
+
+.boton-home {
+    gap: 30px;
+    margin: 15px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.btn-home-left {
+    background-color: #453c61;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+    width: 200px;
+    height: 50px;
+    align-content: center;
+}
+    
+
+.btn-home-right {
+    background-color: aliceblue;
+    font-size: 15px;
+    font-weight: 600;
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+    width: 200px;
+    height: 50px;
+    align-content: center;
+}
+
+
+.nav-item {
+    margin: 16px;
+    font-size: 20px;
+
+}
+
+.nav-item:hover {
+    border-radius: 5px;
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.30);
+
+}
+
+.font-orange {
+    font-weight: 800;
+    color: orangered;
+}
+
+.font-purple {
+    font-weight: 900;
+    color: #251c4c;
+
+}
+
+.font-purple-h {
+    color: #251c4c;
+}
+
+.container-header {
+    background-color: #f2f1ed;
+}
+
+
+/** FIN DEL HEADER DE HOME **/
+
+
+/** inicio section **/
+
+.section-top {
+    height: 500px;
+    background-color: #f2f1ed52;
+    border: solid 5px red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+.container-section {
+    /** border: solid 5px rgb(81, 255, 0); **/
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    height: 90%;
+    align-items: center;
+    border-radius: 20px 20px 20px 80px;
+    gap: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.075);
+    background-color: #edeae7;
+    background: linear-gradient(to right, #edeae7 20%, transparent);
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.30);
+
+}
+
+.container-section-left {
+    /** border: solid 5px blue; **/
+    border-radius: 20px 0px 0px 80px;
+    height: 100%;
+    width: 60%;
+    background-image: url('/static/img/fondo_nutriia.png');
+    background-size: cover;
+    
+}
+
+
+.container-section-right {
+    border: solid 5px blue;
+    height: 70%;
+    width: 60%;
+}
