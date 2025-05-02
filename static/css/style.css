@@ -186,10 +186,42 @@
 }
 
 .medium-left {
-    border: solid 5px rgb(0, 70, 128);
+    border: solid 3px rgb(236, 17, 17);
     height: 90%;
     width: 40%;
+    align-content: center;
 }
+
+.medium-left-top {
+    border: solid 1px rgb(21, 255, 0);
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.icone {
+    border: solid 1px green;
+    margin: 10px;
+}
+
+.medium-left-top p {
+    border: solid 1px blue;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.medium-left-top i {
+    border: solid 1px red;
+    font-size: 40px;
+    margin: 5px;
+}
+
+.medium-left-button {
+    border: solid 1px rgb(21, 255, 0);
+    height: 30%;
+    color: #251c4c;
+}
+
 
 .medium-right {
     height: 90%;
