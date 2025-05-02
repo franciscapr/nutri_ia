@@ -166,7 +166,6 @@
 .section-medium {
     width: 100%;
     height: 600px;
-    border: solid 5px black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -180,44 +179,45 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid 1px rgba(0, 0, 0, 0.082);
+   /* border: solid 1px rgba(0, 0, 0, 0.082); */
     box-shadow: -10px 8px 10px 0px rgba(0, 0, 0, 0.30);
     gap: 50px;
 }
 
 .medium-left {
-    border: solid 3px rgb(236, 17, 17);
+   /* border: solid 3px rgb(236, 17, 17); */
     height: 90%;
     width: 40%;
     align-content: center;
 }
 
 .medium-left-top {
-    border: solid 1px rgb(21, 255, 0);
+    /* border: solid 1px rgb(21, 255, 0); */
     height: 70%;
     display: flex;
     flex-direction: column;
 }
 
 .icone {
-    border: solid 1px green;
+   /* border: solid 1px green; */
     margin: 10px;
 }
 
 .medium-left-top p {
-    border: solid 1px blue;
-    font-size: 20px;
+   /* border: solid 1px blue; */
+    font-size: 23px;
     font-weight: 800;
 }
 
 .medium-left-top i {
-    border: solid 1px red;
+    /* border: solid 1px red; */
     font-size: 40px;
     margin: 5px;
+    color: #251c4c;
 }
 
 .medium-left-button {
-    border: solid 1px rgb(21, 255, 0);
+    /* border: solid 1px rgb(21, 255, 0); */
     height: 30%;
     color: #251c4c;
 }
@@ -239,3 +239,29 @@
 
 
 
+/* Seccion de reseñas home */
+
+.comments {
+    height: 300px;
+   /* border: solid green 5px; */
+    align-content: center;
+}
+
+.carousel-inner {
+    background-color: #f9f9f9;
+    border-radius: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    border: solid 1px rgba(211, 212, 212, 0.342);
+    box-shadow: -10px 8px 10px 0px rgba(0, 0, 0, 0.30);
+
+}
+
+
+.carousel p {
+    color: #251c4c;
+}
+  
+.carousel h5 {
+    color: #0d6efd;
+}
