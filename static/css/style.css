@@ -90,7 +90,7 @@
 /** inicio section **/
 
 .section-top {
-    height: 500px;
+    height: 600px;
     background-color: #f2f1ed52;
     /** border: solid 5px red; **/
     display: flex;
@@ -115,10 +115,10 @@
 }
 
 .container-section-left {
-    /** border: solid 5px blue; **/
+    /*border: solid 5px blue; */
     border-radius: 20px 0px 0px 80px;
     height: 100%;
-    width: 50%;
+    width: 25%;
     background-image: url('/static/img/fondo_nutriia.png');
     background-size: cover;
     
@@ -329,3 +329,18 @@
 .btn-plan {
     background-color: #edeae7;
 }
+
+.btn-home-left,
+.btn-home-right,
+.btn-create {
+  transition: all 0.3s ease;
+}
+
+.btn-home-left:hover,
+.btn-home-right:hover,
+.btn-create:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+
