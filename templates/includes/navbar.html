@@ -3,8 +3,8 @@
 <div class="container-flex container-header">
 <nav class="navbar navbar-expand-lg ">
     <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="{%  static 'img/logo.png' %}" alt="Ícono" width="150" height="80" class="d-inline-block align-text-top">
+      <a class="navbar-brand" href="{% url 'home' %}">
+        <img  src="{%  static 'img/logo.png' %}" alt="Ícono" width="150" height="80" class="d-inline-block align-text-top">
       </a>
       
 
@@ -15,7 +15,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">About Us</a>
@@ -34,7 +34,7 @@
             <a class="nav-link active btn btn-nav" aria-current="page" href="#">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Register</a>
+            <a class="nav-link active" aria-current="page" href="{% url 'register' %}">Register</a>
           </li>
         </ul>
       </div>
