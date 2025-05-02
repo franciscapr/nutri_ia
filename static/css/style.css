@@ -30,7 +30,7 @@
 }
 
 .btn-home-left {
-    background-color: #453c61;
+    background-color: #172c4b;
     color: white;
     font-size: 15px;
     font-weight: 600;
@@ -71,12 +71,12 @@
 
 .font-purple {
     font-weight: 900;
-    color: #251c4c;
+    color: #172c4b;
 
 }
 
 .font-purple-h {
-    color: #251c4c;
+    color: #172c4b;
 }
 
 .container-header {
@@ -151,7 +151,7 @@
 }
 
 .btn-create {
-    background-color: #251c4c;
+    background-color: #172c4b;
     color: white;
     margin-top: 20px;
     width: 50%;
@@ -213,13 +213,13 @@
     /* border: solid 1px red; */
     font-size: 40px;
     margin: 5px;
-    color: #251c4c;
+    color: #172c4b;
 }
 
 .medium-left-button {
     /* border: solid 1px rgb(21, 255, 0); */
     height: 30%;
-    color: #251c4c;
+    color: #172c4b;
 }
 
 
@@ -259,9 +259,73 @@
 
 
 .carousel p {
-    color: #251c4c;
+    color: #172c4b;
 }
   
 .carousel h5 {
-    color: #0d6efd;
+    color: #172c4b;
+}
+
+
+/* sevicios */
+
+.services {
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    height: 80%;
+    margin: 0 auto;    
+}
+
+.card:hover {
+    height: 80%;
+    margin: 0 auto;  
+    box-shadow: -10px 8px 10px 0px rgba(0, 0, 0, 0.30);
+}
+
+.card-body i {
+    font-size: 50px;
+    color: #172c4b;
+    margin: 10px;
+}
+
+.eslogan {
+    height: 100px;
+    text-align: center;
+    align-content: center;
+    background-color: #172c4b;
+    color: #edeae7;
+}
+
+.planes {
+    height: 350px;
+}
+
+.planes h1{
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 900;
+}
+.plan {
+    display: flex;
+    margin: 0 auto;
+}
+
+.card-text {
+    text-align: justify;
+}
+
+.card-body-plan {
+    background-color: #172c4b;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: -10px 8px 10px 0px rgba(0, 0, 0, 0.30);
+}
+
+.btn-plan {
+    background-color: #edeae7;
 }
