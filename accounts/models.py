@@ -1,25 +1,43 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db import models
 
-class UserProfile(models.Model):
-    # Enlace al usuario estándar de Django
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+# Clase con operaciones para crear un nuevo usuario y un super admin usuario
+class MyAccountManager(BaseUserManager):
+    def create_user(self, first_name, last_name, username, email, password=None):
+        if not email:
+            raise ValueError('El usuario debe tener una email')
+        
+        if not username:
+            raise ValueError('El usuario debe tener un usuername')
+        
+        user = self.model(
+            email = self.normalize_email(email),
+            username = username,
+            first_name = first_name,
+            last_name = last_name
+        )
 
-    # Datos nutricionales y físicos
-    birth_date = models.DateField(null=True, blank=True)
-    sex = models.CharField(max_length=10, choices=[('male', 'Hombre'), ('female', 'Mujer'), ('other', 'Otro')])
-    height_cm = models.PositiveIntegerField(null=True, blank=True)  # altura en cm
-    weight_kg = models.FloatField(null=True, blank=True)
-    tmb = models.FloatField(null=True, blank=True, help_text="Tasa metabólica basal")
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+    
+    def create_superuser(self, first_name, last_name, email, username, password):
+        user = self.create_user(
+            email = self.normalize_email(email),
+            username = username,
+            password = password,
+            first_name = first_name,
+            last_name = last_name,
+        )
 
-    # Rol futuro
-    ROLE_CHOICES = [
-        ('user', 'Usuario'),
-        ('nutritionist', 'Nutricionista'),
-    ]
-    role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='user')
+        user.is_admin = True
+        user.is_active = True
+        user.is_staff = True
+        user.is_superadmin = True
+        user.save(using=self._db)
+        return user
 
-
+    
 
 class Account(AbstractBaseUser):
     first_name = models.CharField(max_length=50)
@@ -28,7 +46,6 @@ class Account(AbstractBaseUser):
     email = models.CharField(max_length=100, unique=True)
     phone_number = models.CharField(max_length=50)
 
-
     # Campos por defecto django
     date_joined = models.DateTimeField(auto_now_add=True)
     date_login = models.DateField(auto_now_add=True)
@@ -36,3 +53,22 @@ class Account(AbstractBaseUser):
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
     is_superadmin = models.BooleanField(default=False)
+
+
+    # Utilizamos el email para inicial sesion
+    USERNAME_FIELD = 'email'
+    # Campos necesarios para el registro de una usuario
+    REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
+
+    objects = MyAccountManager()
+
+
+    def __str__(self):
+        return self.email
+    
+    # Permisos
+    def has_perm(self, perm, obj=None):
+        return self.is_admin
+    
+    def has_module_perms(self, add_label):
+        return True
