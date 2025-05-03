@@ -71,6 +71,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'nutria.wsgi.application'
 
+AUTH_USER_MODEL = 'account.Account'
+
 
 
 
