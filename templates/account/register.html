@@ -52,15 +52,17 @@
                           {{ form.confirm_password }}
                           </div>
                     </div>
-                    <div class="form-group mt-4 d-flex justify-content-center">
+                    <div class="form-group mt-4 d-flex justify-content-center mb-4">
                         <button type="submit" class="btn btn-dark col-6"> Registrar  </button>
                     </div>  
+
+                    {{ form.non_field_errors }}
                         
                 </form>
 
 
-            </article><!-- card-body.// -->
-        </div> <!-- card .// -->
+            </article>
+        </div>
         <p class="text-center mt-4">Tienes una cuenta? <a href="">Log In</a></p>
         <br><br>    
     
