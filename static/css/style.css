@@ -284,7 +284,7 @@
 .card:hover {
     height: 80%;
     margin: 0 auto;  
-    box-shadow: -10px 8px 10px 0px rgba(0, 0, 0, 0.30);
+   /* box-shadow: -10px 8px 10px 0px rgba(0, 0, 0, 0.30); */
 }
 
 .card-body i {
@@ -318,13 +318,13 @@
 .card-text {
     text-align: justify;
 }
-
+/*
 .card-body-plan {
     background-color: #172c4b;
     color: rgb(255, 255, 255);
     border-radius: 10px;
     box-shadow: -10px 8px 10px 0px rgba(0, 0, 0, 0.30);
-}
+}*/
 
 .btn-plan {
     background-color: #edeae7;

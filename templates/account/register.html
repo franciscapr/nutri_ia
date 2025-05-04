@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+
+<section class="section-content padding-y">
+
+        <div class="card mx-auto" style="max-width:520px; margin-top:40px;">
+          <article class="card-body">
+            <header class="mb-4 text-center">
+                <img src="{%  static 'img/logo.png' %}" alt="Ícono" width="100" height="50" class="mb-2">
+                <h4 class="card-title text-center">Registro de Usuario</h4>
+            </header>
+
+            <form action="{% url 'register' %}" method="POST">
+                {% csrf_token %}
+
+                    <div class="form-row">
+                        <div class="col form-group mt-3">
+                            <label><b>Nombre</b></label>
+                            {{ form.first_name }}
+                        </div>
+
+                        <div class="col form-group mt-3">
+                            <label><b>Apellido</b></label>
+                            {{ form.last_name }}
+                        </div>
+                      </div>
+
+                      <div class="form-row">
+                        <div class="col form-group mt-3">
+                            <label><b>Nùmero Telefonico</b></label>
+                            {{ form.phone_number }}
+                        </div>
+
+                        <div class="col form-group mt-3">
+                            <label><b>Email</b></label>
+                            {{ form.email }}
+                        </div>
+                      </div>
+
+                    <div class="form-row">
+                        <div class="form-group col mt-3">
+                            <label><b>Crear password</b></label>
+                          {{ form.password }}
+                          </div>
+                        <div class="form-group col mt-3">
+                            <label><b>Repetir password</b></label>
+                          {{ form.confirm_password }}
+                          </div>
+                    </div>
+                    <div class="form-group mt-4 d-flex justify-content-center">
+                        <button type="submit" class="btn btn-dark col-6"> Registrar  </button>
+                    </div>  
+                        
+                </form>
+
+
+            </article><!-- card-body.// -->
+        </div> <!-- card .// -->
+        <p class="text-center mt-4">Tienes una cuenta? <a href="">Log In</a></p>
+        <br><br>    
+    
+    </section>
+
+
+
+
+
+{% endblock %}
