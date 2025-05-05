@@ -6,15 +6,17 @@
 
 {% block content %}
 
+{% include 'includes/alerts.html' %}
 
 <div class="d-flex">
   <!-- Sidebar -->
-  <div class="sidebar text-center">
-    <h4 class="card-title"><img src="{%  static 'img/icono.png' %}" alt="Ícono" width="50" height="50" class="mb-3"> Dashboard</h4>
-    <a class="btn btn-dark mt-2 col-10 " href="#">Galeria</a>
-    <a class="btn btn-dark mt-2 col-10" href="#">Planes nutricionales</a>
-    <a class="btn btn-dark mt-2 col-10" href="#">Configuraciones</a>
-  </div>
+        <div class="col-2 text-center mt-4">
+            <h4 class="card-title"><img src="{%  static 'img/icono.png' %}" alt="Ícono" width="50" height="50" class="mb-3"> Dashboard</h4>
+            <a class="btn btn-dark mt-2 col-10 " href="#"><i class="fa-solid fa-image"></i>  Galeria</a>
+            <a class="btn btn-dark mt-2 col-10" href="#"><i class="fa-solid fa-apple-whole"></i>  Planes nutricionales</a>
+            <a class="btn btn-dark mt-2 col-10" href="#"><i class="fa-solid fa-gear"></i>  Configuraciones</a>
+            <a class="btn btn-dark mt-2 col-10" href="{% url 'logout' %}"><i class="fa-solid fa-right-from-bracket"></i>  Salir de sesion</i></a>
+        </div>
 
   <!-- Main content -->
   <div class="dashboard-content w-100 mt-2">
@@ -73,6 +75,8 @@
       </div>
     </div>
   </div>
+
+
 </div>
 
 {% endblock %}
