@@ -7,8 +7,8 @@
 <section class="section-conten padding-y container" style="min-height:84vh">
 
     {% if request.GET.command == 'verification' %}
-        <div class="container mx-auto alert alert-info" role="alert" style="max-width=380px; margin-top=100px;">
-            Muchas gracias por registrarte en nuestro portal Ecommerce, te hemos enviado un email con el link para confirmar tu cuento [{{ request.GET.email }}]
+        <div class="container mx-auto alert alert-info mt-4" role="alert" style="max-width=380px; margin-top=100px;">
+            Muchas gracias por registrarte en nuestro portal NutrIA, te hemos enviado un email con el link para confirmar tu cuenta [{{ request.GET.email }}]
             <br>
             <br>
             Si ya verificaste tu cuenta, puedes iniciar sesiòn <a href="{% url 'login' %}">Login</a>
