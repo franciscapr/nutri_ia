@@ -344,3 +344,70 @@
 }
 
 
+
+/* dashboard*/
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f8f9fa;
+  }
+
+  .sidebar {
+    height: 100vh;
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    padding-top: 2rem;
+  }
+
+  .sidebar a {
+    display: block;
+    padding: 1rem 1.5rem;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .sidebar a.active,
+  .sidebar a:hover {
+    background-color: #f0f0f0;
+    color: #000;
+    border-left: 4px solid #4e60ff;
+  }
+
+  .dashboard-content {
+    padding: 2rem;
+  }
+
+  .nutrition-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(#4CAF50 75%, #eee 75%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .macro {
+    text-align: center;
+  }
+
+  .macro span {
+    display: block;
+    font-weight: 600;
+  }
+
+  .card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .section-title {
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }

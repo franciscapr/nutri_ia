@@ -94,3 +94,8 @@ def activate(request, uidb64, token):
     else:
         messages.error(request, 'La activacion es invalida')
         return redirect('register')
+    
+
+@login_required(login_url='login')
+def dashboard(request):
+    return render(request, 'account/dashboard.html')
