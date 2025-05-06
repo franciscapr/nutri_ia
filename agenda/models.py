@@ -19,6 +19,7 @@ class Specialty(models.Model):
 
 class Nutritionist(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    price = models.DecimalField(max_digits=10, decimal_places=2, default=19990)
     specialty = models.ForeignKey(Specialty, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):

@@ -9,35 +9,47 @@ from django.conf import settings
 
 
 def agenda_citas(request):
-    slots = AppointmentSlot.objects.filter(date__gte=date.today()).values('date', 'time', 'is_booked')
+    slots = AppointmentSlot.objects.select_related('nutritionist__user').filter(date__gte=date.today(), is_booked=False)
+
+    slot_data = []
+    for slot in slots:
+        slot_data.append({
+            'date': slot.date.isoformat(),
+            'time': slot.time,
+            'is_booked': slot.is_booked,
+            'nutritionist': f'{slot.nutritionist.user.first_name} {slot.nutritionist.user.last_name}',
+            'url': f'/agenda/reservar/{slot.date}/{slot.time}/'
+        })
+
     return render(request, 'agenda/agenda_citas.html', {
-        'slots': list(slots)  # Esto lo hace serializable
+        'slots': slot_data
     })
+
+
 
 @login_required
 def reservar_cita(request, fecha, hora):
     fecha_obj = datetime.strptime(fecha, "%Y-%m-%d").date()
-
-    # Filtrar el slot correspondiente a la fecha y hora seleccionadas
     slot = AppointmentSlot.objects.filter(date=fecha_obj, time=hora, is_booked=False).first()
 
     if not slot:
-        # Si no hay un slot disponible
         return HttpResponse("El slot ya está reservado o no está disponible.")
 
     if request.method == 'POST':
         form = AppointmentForm(request.POST)
         if form.is_valid():
             appointment = form.save(commit=False)
-            appointment.slot = slot  # Asignamos el slot seleccionado
-            appointment.client = request.user  # Asignamos el usuario autenticado como el cliente
+            appointment.slot = slot
+            appointment.client = request.user
 
             # Marcar el slot como reservado
             slot.is_booked = True
             slot.save()
-
             appointment.save()
+
+            # 🔁 Redirigir directamente al pago en lugar de otra confirmación
             return redirect('confirmacion_cita', cita_id=appointment.id)
+
     else:
         form = AppointmentForm(initial={'slot': slot})
 
@@ -48,11 +60,24 @@ def reservar_cita(request, fecha, hora):
         'slot': slot
     })
 
+    #return render(request, 'agenda/confirmacion_cita.html', {
+     #   'fecha': fecha_obj,
+      #  'hora': hora,
+       # 'form': form,
+        #'slot': slot
+   # })
+
+
+
+
+
+@login_required
 def confirmacion_cita(request, cita_id):
-    # Obtener la cita usando el ID
-    cita = Appointment.objects.get(id=cita_id)
+    cita = get_object_or_404(Appointment, id=cita_id, client=request.user)
+    precio = cita.slot.nutritionist.price  # ← Asegúrate que esto no sea None
 
-    return render(request, 'agenda/confirmacion_cita.html', {'cita': cita})
-
-
-
+    return render(request, 'agenda/confirmacion_cita.html', {
+        'cita': cita,
+        'slot': cita.slot,
+        'price': precio
+    })

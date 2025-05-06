@@ -1,9 +1,28 @@
-<!-- pago.html -->
-<h2>Detalles de la cita</h2>
-<p>Tu cita con {{ appointment.slot.nutritionist }} está programada para el {{ appointment.slot.date }} a las {{ appointment.slot.time }}.</p>
+{% extends 'base.html' %}
 
-<form method="POST" action="#">
-    {% csrf_token %}
-    <!-- Otros campos de pago -->
-    <button type="submit">Pagar</button>
-</form>
+{% load static %}
+
+{% block content %}
+
+<div class="container text-center">
+
+    <div class="card mt-4">
+
+        <h2 class="mt-4 mb-4"><b><i class="fa-solid fa-calendar-days"></i>  Detalles de la cita</b></h2>
+
+        <p><b>Profesional: </b>{{ slot.nutritionist.user.first_name }} {{ slot.nutritionist.user.last_name }}</p>
+        <p><b>Especialidad: </b>{{ slot.nutritionist.specialty.name }}</p>
+        <p><b>Fecha: </b>{{ slot.date }}</p>
+        <p><b>Hora: </b>{{ slot.get_time_display }}</p>  {# Mostrar como "07:00 - 08:00" #}
+        <p><b>Motivo Consulta: </b> {{ slot.note }}</p>
+        <p><b>Valor consulta:</b> ${{ slot.nutritionist.price|floatformat:"0" }} CLP</p>
+        
+            <form method="POST" action="#">
+                {% csrf_token %}
+                <!-- Otros campos de pago -->
+                <button  class="btn btn-dark mb-4 col-4" type="submit">Confirmar</button>
+            </form>
+    </div>
+    
+</div>
+{% endblock %}

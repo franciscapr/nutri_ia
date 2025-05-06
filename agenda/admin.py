@@ -7,7 +7,8 @@ class SpecialtyAdmin(admin.ModelAdmin):
 
 @admin.register(Nutritionist)
 class NutritionistAdmin(admin.ModelAdmin):
-    list_display = ('user', 'specialty')
+    list_display = ('user', 'specialty', 'price')
+    list_editable = ['price']
     search_fields = ('user__email', 'specialty')
 
 @admin.register(AppointmentSlot)
