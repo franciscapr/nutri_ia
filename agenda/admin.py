@@ -1,5 +1,9 @@
 from django.contrib import admin
-from .models import Nutritionist, AppointmentSlot, Appointment
+from .models import Nutritionist, AppointmentSlot, Appointment, Specialty
+
+@admin.register(Specialty)
+class SpecialtyAdmin(admin.ModelAdmin):
+    list_display = ('name',)
 
 @admin.register(Nutritionist)
 class NutritionistAdmin(admin.ModelAdmin):
@@ -26,3 +30,4 @@ class AppointmentAdmin(admin.ModelAdmin):
         return obj.slot.date
     def slot_time(self, obj):
         return obj.slot.time
+

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procesar Pago</title>
+</head>
+<body>
+    <h1>Confirmar Pago para la Consulta Nutricional</h1>
+    <p>Detalles de la cita:</p>
+    <p>Cliente: {{ cita.client }}</p>
+    <p>Nutricionista: {{ cita.slot.nutritionist }}</p>
+    <p>Fecha: {{ cita.slot.date }}</p>
+    <p>Hora: {{ cita.slot.time }}</p>
+
+    <!-- Aquí puedes mostrar detalles adicionales o confirmar la acción -->
+    <a href="{% url 'pago_stripe' cita.id %}">Pagar ahora</a>
+</body>
+</html>

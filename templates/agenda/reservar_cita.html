@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2 class="text-center">Reservar cita para {{ fecha }} a las {{ hora }}</h2>
+    
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="slot">Seleccionar hora:</label>
+        {{ form.slot }}
+      </div>
+      
+      <div class="form-group">
+        <label for="notes">Notas (opcional):</label>
+        {{ form.notes }}
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Confirmar cita</button>
+    </form>
+  </div>
+{% endblock %}

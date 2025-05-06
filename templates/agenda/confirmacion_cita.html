@@ -1,0 +1,9 @@
+<!-- pago.html -->
+<h2>Detalles de la cita</h2>
+<p>Tu cita con {{ appointment.slot.nutritionist }} está programada para el {{ appointment.slot.date }} a las {{ appointment.slot.time }}.</p>
+
+<form method="POST" action="#">
+    {% csrf_token %}
+    <!-- Otros campos de pago -->
+    <button type="submit">Pagar</button>
+</form>
