@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.conf import settings
 
 
+# Calendar --> Visualizamos el calendario con los dias y la shoras disponibles.
 def agenda_citas(request):
     slots = AppointmentSlot.objects.select_related('nutritionist__user').filter(date__gte=date.today(), is_booked=False)
 
@@ -29,15 +30,17 @@ def agenda_citas(request):
 
 @login_required
 def reservar_cita(request, fecha, hora):
-    fecha_obj = datetime.strptime(fecha, "%Y-%m-%d").date()
-    slot = AppointmentSlot.objects.filter(date=fecha_obj, time=hora, is_booked=False).first()
+    fecha_obj = datetime.strptime(fecha, "%Y-%m-%d").date()    # Obtenemos la fecha y hora --> convertimos a date
+    slot = AppointmentSlot.objects.filter(date=fecha_obj, time=hora, is_booked=False).first()    # Buscamos el cita disponible
 
+    # Si no se encuentra la cita, enviamos un mensaje
     if not slot:
         return HttpResponse("El slot ya está reservado o no está disponible.")
 
+    # Procesamos el formulario si es de tipo post
     if request.method == 'POST':
         form = AppointmentForm(request.POST)
-        if form.is_valid():
+        if form.is_valid():    # Si el formulario es valido
             appointment = form.save(commit=False)
             appointment.slot = slot
             appointment.client = request.user
@@ -47,27 +50,17 @@ def reservar_cita(request, fecha, hora):
             slot.save()
             appointment.save()
 
-            # 🔁 Redirigir directamente al pago en lugar de otra confirmación
             return redirect('confirmacion_cita', cita_id=appointment.id)
 
     else:
         form = AppointmentForm(initial={'slot': slot})
 
-    return render(request, 'agenda/reservar_cita.html', {
+    return render(request, 'agenda/confirmacion_cita.html', {
         'fecha': fecha_obj,
         'hora': hora,
         'form': form,
         'slot': slot
     })
-
-    #return render(request, 'agenda/confirmacion_cita.html', {
-     #   'fecha': fecha_obj,
-      #  'hora': hora,
-       # 'form': form,
-        #'slot': slot
-   # })
-
-
 
 
 

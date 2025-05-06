@@ -14,13 +14,12 @@
         <p><b>Especialidad: </b>{{ slot.nutritionist.specialty.name }}</p>
         <p><b>Fecha: </b>{{ slot.date }}</p>
         <p><b>Hora: </b>{{ slot.get_time_display }}</p>  {# Mostrar como "07:00 - 08:00" #}
-        <p><b>Motivo Consulta: </b> {{ slot.note }}</p>
         <p><b>Valor consulta:</b> ${{ slot.nutritionist.price|floatformat:"0" }} CLP</p>
         
             <form method="POST" action="#">
                 {% csrf_token %}
                 <!-- Otros campos de pago -->
-                <button  class="btn btn-dark mb-4 col-4" type="submit">Confirmar</button>
+                <button  class="btn btn-dark mb-4 col-4 " type="submit">Pagar</button>
             </form>
     </div>
     

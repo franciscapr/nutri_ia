@@ -2,22 +2,24 @@
 
 {% block content %}
   <div class="container mt-4">
-    <h2 class="text-center">Reservar cita para {{ fecha }} a las {{ hora }}</h2>
-x
+    <h2 class="text-center"> Reservar cita</h2>
     
     <form method="post">
       {% csrf_token %}
-      <div class="form-group">
-        <label for="slot">Seleccionar hora:</label>
-        {{ form.slot }}
-      </div>
+
+
+      <p><b>Profesional: </b>{{ slot.nutritionist.user.first_name }} {{ slot.nutritionist.user.last_name }}</p>
+      <p><b>Especialidad: </b>{{ slot.nutritionist.specialty.name }}</p>
+      <p><b>Fecha: </b>{{ slot.date }}</p>
+      <p><b>Hora: </b>{{ slot.get_time_display }}</p>  {# Mostrar como "07:00 - 08:00" #}
+      <p><b>Valor consulta:</b> ${{ slot.nutritionist.price|floatformat:"0" }} CLP</p>
       
-      <div class="form-group">
-        <label for="notes">Notas (opcional):</label>
+      <div class="form-group mt-4">
+        <label for="notes">Motivo de su consulta:</label>
         {{ form.notes }}
       </div>
       
-      <button type="submit" class="btn btn-primary">Confirmar cita</button>
+      <button type="submit" class="btn btn-dark mt-2">Confirmar cita</button>
     </form>
   </div>
 {% endblock %}
