@@ -302,7 +302,7 @@
 }
 
 .planes {
-    height: 350px;
+    height: 400px;
 }
 
 .planes h1{
@@ -311,6 +311,7 @@
     font-weight: 900;
 }
 .plan {
+    height: 500px;
     display: flex;
     margin: 0 auto;
 }
